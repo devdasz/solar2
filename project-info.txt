@@ -44,3 +44,17 @@ Drive Details
     Drive Capacity
     Manufacture of Drive
     Serial Numbers of Drive
+
+----------xxx-----------------------
+
+View Projects
+-------------
+    Project Name
+    Pump Capacity
+    Device ID
+    Department
+    Agency
+    District
+    Location
+    Created On
+    Actions
