@@ -1,0 +1,631 @@
+<!doctype html>
+<html lang="en" data-layout="horizontal" data-layout-style="" data-layout-position="fixed" data-topbar="light">
+
+
+
+<head>
+
+    <meta charset="utf-8" />
+    <title>Solaris</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+    <!-- plugin css -->
+    <link href="assets/libs/jsvectormap/css/jsvectormap.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Layout config Js -->
+    <script src="assets/js/layout.js"></script>
+    <!-- Bootstrap Css -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- Icons Css -->
+    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <!-- App Css-->
+    <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" />
+    <!-- custom Css-->
+    <link href="assets/css/custom.min.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+
+    <!-- Begin page -->
+    <div id="layout-wrapper">
+
+        <header id="page-topbar">
+            <div class="layout-width">
+                <div class="navbar-header">
+                    <div class="d-flex">
+                        <!-- LOGO -->
+                        <div class="navbar-brand-box horizontal-logo">
+                            <a href="index.html" class="logo logo-dark">
+                                <span class="logo-sm">
+                                    <img src="assets/images/logo-sm.png" alt="" height="22">
+                                </span>
+                                <span class="logo-lg">
+                                    <img src="assets/images/logo-dark.png" alt="" height="60">
+                                </span>
+                            </a>
+
+                            <a href="index.html" class="logo logo-light">
+                                <span class="logo-sm">
+                                    <img src="assets/images/logo-sm.png" alt="" height="22">
+                                </span>
+                                <span class="logo-lg">
+                                    <img src="assets/images/logo-light.png" alt="" height="17">
+                                </span>
+                            </a>
+                        </div>
+
+                        <button type="button"
+                            class="btn btn-sm px-3 fs-16 header-item vertical-menu-btn topnav-hamburger"
+                            id="topnav-hamburger-icon">
+                            <span class="hamburger-icon">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </span>
+                        </button>
+
+
+                    </div>
+
+                    <div class="d-flex align-items-center">
+                        <!-- Full Screen -->
+                        <div class="ms-1 header-item d-none d-sm-flex">
+                            <button type="button" class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle"
+                                data-toggle="fullscreen">
+                                <i class='bx bx-fullscreen fs-22'></i>
+                            </button>
+                        </div>
+                        <!-- Dark Mode -->
+                        <div class="ms-1 header-item d-none d-sm-flex">
+                            <button type="button"
+                                class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle light-dark-mode">
+                                <i class='bx bx-moon fs-22'></i>
+                            </button>
+                        </div>
+                        <!-- Notification -->
+                        <div class="dropdown topbar-head-dropdown ms-1 header-item" id="notificationDropdown">
+                            <button type="button" class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle"
+                                id="page-header-notifications-dropdown" data-bs-toggle="dropdown"
+                                data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">
+                                <i class='bx bx-bell fs-22'></i>
+                                <span
+                                    class="position-absolute topbar-badge fs-10 translate-middle badge rounded-pill bg-danger">3<span
+                                        class="visually-hidden">unread messages</span></span>
+                            </button>
+
+                        </div>
+                        <!-- User -->
+                        <div class="dropdown ms-sm-3 header-item topbar-user">
+                            <button type="button" class="btn" id="page-header-user-dropdown" data-bs-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <span class="d-flex align-items-center">
+                                    <img class="rounded-circle header-profile-user"
+                                        src="assets/images/users/avatar-1.jpg" alt="Header Avatar">
+                                    <span class="text-start ms-xl-2">
+                                        <span
+                                            class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">Devdasz</span>
+                                        <span class="d-none d-xl-block ms-1 fs-12 user-name-sub-text">Engineer</span>
+                                    </span>
+                                </span>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <!-- item-->
+                                <h6 class="dropdown-header">Welcome Devdasz!</h6>
+                                <a class="dropdown-item" href="pages-profile.html"><i
+                                        class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i> <span
+                                        class="align-middle">Profile</span></a>
+
+
+
+                                <div class="dropdown-divider"></div>
+
+
+
+                                <a class="dropdown-item" href="auth-logout-basic.html"><i
+                                        class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i> <span
+                                        class="align-middle" data-key="t-logout">Logout</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- removeNotificationModal -->
+        <div id="removeNotificationModal" class="modal fade zoomIn" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                            id="NotificationModalbtn-close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mt-2 text-center">
+                            <lord-icon src="https://cdn.lordicon.com/gsqxdxog.json" trigger="loop"
+                                colors="primary:#f7b84b,secondary:#f06548" style="width:100px;height:100px"></lord-icon>
+                            <div class="mt-4 pt-2 fs-15 mx-4 mx-sm-5">
+                                <h4>Are you sure ?</h4>
+                                <p class="text-muted mx-4 mb-0">Are you sure you want to remove this Notification ?</p>
+                            </div>
+                        </div>
+                        <div class="d-flex gap-2 justify-content-center mt-4 mb-2">
+                            <button type="button" class="btn w-sm btn-light" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn w-sm btn-danger" id="delete-notification">Yes, Delete
+                                It!</button>
+                        </div>
+                    </div>
+
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+        <!-- ========== App Menu ========== -->
+        <div class="app-menu navbar-menu">
+            <!-- LOGO -->
+            <div class="navbar-brand-box">
+                <!-- Dark Logo-->
+                <a href="index.html" class="logo logo-dark">
+                    <span class="logo-sm">
+                        <img src="assets/images/logo-sm.png" alt="" height="22">
+                    </span>
+                    <span class="logo-lg">
+                        <img src="assets/images/logo-dark.png" alt="" height="17">
+                    </span>
+                </a>
+                <!-- Light Logo-->
+                <a href="index.html" class="logo logo-light">
+                    <span class="logo-sm">
+                        <img src="assets/images/logo-sm.png" alt="" height="22">
+                    </span>
+                    <span class="logo-lg">
+                        <img src="assets/images/logo-light.png" alt="" height="17">
+                    </span>
+                </a>
+                <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover"
+                    id="vertical-hover">
+                    <i class="ri-record-circle-line"></i>
+                </button>
+            </div>
+
+            <div id="scrollbar">
+                <div class="container-fluid">
+
+                    <div id="two-column-menu">
+                    </div>
+                    <ul class="navbar-nav" id="navbar-nav">
+                        <li class="menu-title"><span data-key="t-menu">Menu</span></li>
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#sidebarDashboards" role="button" aria-expanded="false"
+                                aria-controls="sidebarDashboards">
+                                <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Dashboard</span>
+                            </a>
+
+                        </li> <!-- end Dashboard Menu -->
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#sidebarProjects" data-bs-toggle="collapse"
+                                role="button" aria-expanded="false" aria-controls="sidebarProjects">
+                                <i class="ri-apps-2-line"></i> <span data-key="t-apps">Projects</span>
+                            </a>
+                            <div class="collapse menu-dropdown" id="sidebarProjects">
+                                <ul class="nav nav-sm flex-column">
+                                    <li class="nav-item">
+                                        <a href="#sidebarCalendar" class="nav-link" role="button" aria-expanded="false"
+                                            aria-controls="sidebarCalendar" data-key="t-calender">
+                                            Create Project
+                                        </a>
+
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="apps-chat.html" class="nav-link" data-key="t-chat"> View All
+                                            Projects</a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#sidebarUsers" data-bs-toggle="collapse" role="button"
+                                aria-expanded="false" aria-controls="sidebarUsers">
+                                <i class="ri-user-3-line"></i> <span data-key="t-apps">Users</span>
+
+                            </a>
+                            <div class="collapse menu-dropdown" id="sidebarUsers">
+                                <ul class="nav nav-sm flex-column">
+                                    <li class="nav-item">
+                                        <a href="#sidebarCalendar" class="nav-link" role="button" aria-expanded="false"
+                                            aria-controls="sidebarCalendar" data-key="t-calender">
+                                            Add New User
+                                        </a>
+
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="apps-chat.html" class="nav-link" data-key="t-chat"> View All Users</a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </li>
+
+
+
+
+
+
+
+                    </ul>
+                </div>
+                <!-- Sidebar -->
+            </div>
+
+            <div class="sidebar-background"></div>
+        </div>
+        <!-- Left Sidebar End -->
+        <!-- Vertical Overlay-->
+        <div class="vertical-overlay"></div>
+
+        <!-- ============================================================== -->
+        <!-- Start right Content here -->
+        <!-- ============================================================== -->
+        <div class="main-content">
+
+            <div class="page-content">
+                <div class="container-fluid">
+
+                    <!-- start page title -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                                <h4 class="mb-sm-0">Create Project</h4>
+
+                                <div class="page-title-right">
+                                    <ol class="breadcrumb m-0">
+                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Projects</a></li>
+                                        <li class="breadcrumb-item active">Create Project</li>
+                                    </ol>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end page title -->
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="card-title mb-0">Basic Details</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="mb-3">
+                                        <label class="form-label" for="project-title-input">Project Name</label>
+                                        <input type="text" class="form-control" id="project-title-input"
+                                            placeholder="Enter project name">
+                                    </div>
+                                    <div class="row mb-3">
+
+
+                                        <div class="col-lg-4">
+                                            <div class="mb-3 mb-lg-0">
+                                                <label for="pump-no-input" class="form-label">Pump No</label>
+                                                <input type="text" class="form-control" id="pump-no-input"
+                                                    placeholder="Enter pump no" data-provider="flatpickr">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="mb-3 mb-lg-0">
+                                                <label for="moble-no-input" class="form-label">Moble No</label>
+                                                <input type="text" class="form-control" id="moble-no-input"
+                                                    placeholder="Enter moble no" data-provider="flatpickr">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div>
+                                                <label for="sim-no-input" class="form-label">Sim No</label>
+                                                <input type="text" class="form-control" id="sim-no-input"
+                                                    placeholder="Enter sim no" data-provider="flatpickr">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-2">
+                                        <div class="col-lg-8">
+                                            <div class="mb-3 mb-lg-0">
+                                                <label for="location-input" class="form-label">Location</label>
+                                                <input type="text" class="form-control" id="location-input"
+                                                    placeholder="Enter location" data-provider="flatpickr">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-4">
+                                            <div class="mb-3 mb-lg-0">
+                                                <label for="choices-district-name-input"
+                                                    class="form-label">District</label>
+                                                <select class="form-select" data-choices="" data-choices-search-false=""
+                                                    id="choices-district-name-input">
+                                                    <option value="District 1" selected="">District 1</option>
+                                                    <option value="District 2">District 2</option>
+                                                    <option value="District 3">District 3</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="col-lg-4">
+                            <!-- Department -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="card-title mb-0">Department</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div>
+                                        <label for="choices-department-name-input" class="form-label">Department
+                                            Name</label>
+                                        <select class="form-select" data-choices="" data-choices-search-false=""
+                                            id="choices-department-name-input">
+                                            <option value="Department 1" selected="">Department 1</option>
+                                            <option value="Department 2">Department 2</option>
+                                            <option value="Department 3">Department 3</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!-- end card body -->
+                            </div>
+                            <!-- Agency -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="card-title mb-0">Agency</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div>
+                                        <label for="choices-agency-name-input" class="form-label">Agency Name</label>
+                                        <select class="form-select" data-choices="" data-choices-search-false=""
+                                            id="choices-agency-name-input">
+                                            <option value="Agency 1" selected="">Agency 1</option>
+                                            <option value="Agency 2">Agency 2</option>
+                                            <option value="Agency 3">Agency 3</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!-- end card body -->
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <!-- PV Details -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="card-title mb-0">PV Details</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row mb-3">
+                                        <div class="col-lg-6">
+                                            <div class="mb-3 mb-lg-0">
+                                                <label for="device-id-input" class="form-label">Device ID</label>
+                                                <input type="text" class="form-control" id="device-id-input"
+                                                    placeholder="Enter device ID" data-provider="flatpickr">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="mb-3 mb-lg-0">
+                                                <label for="pv-module-type-input" class="form-label">PV Module
+                                                    Type</label>
+                                                <input type="text" class="form-control" id="pv-module-type-input"
+                                                    placeholder="Enter PV module type" data-provider="flatpickr">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-lg-6">
+                                            <div class="mb-3 mb-lg-0">
+                                                <label for="each-pv-module-wattage-input" class="form-label">Each PV Module Wattage</label>
+                                                <input type="text" class="form-control" id="each-pv-module-wattage-input"
+                                                    placeholder="Enter each PV module wattage" data-provider="flatpickr">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="mb-3 mb-lg-0">
+                                                <label for="total-pv-module-number-input" class="form-label"> Total Numbers of PV Modules</label>
+                                                <input type="text" class="form-control" id="total-pv-module-number-input"
+                                                    placeholder="Enter total numbers of PV modules" data-provider="flatpickr">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row ">
+                                        <div class="col-lg-6">
+                                            <div class="mb-3 mb-lg-0">
+                                                <label for="pv-module-manufacture-input" class="form-label">Manufacture of PV Modules</label>
+                                                <input type="text" class="form-control" id="pv-module-manufacture-input"
+                                                    placeholder="Enter manufacture of PV modules" data-provider="flatpickr">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="mb-3 mb-lg-0">
+                                                <label for="pv-module-serial-number-input" class="form-label">Serial Numbers of Module</label>
+                                                <input type="text" class="form-control" id="pv-module-serial-number-input"
+                                                    placeholder="Enter serial numbers of Module" data-provider="flatpickr">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!-- end card body -->
+                            </div>
+                            <!-- Pump Details -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="card-title mb-0">Pump Details</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row mb-3">
+                                        <div class="col-lg-6">
+                                            <div class="mb-3 mb-lg-0">
+                                                <label for="pump-type-input" class="form-label">Pump Type</label>
+                                                <input type="text" class="form-control" id="pump-type-input"
+                                                    placeholder="Enter pump type" data-provider="flatpickr">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="mb-3 mb-lg-0">
+                                                <label for="pump-capacity-input" class="form-label">Pump Capacity</label>
+                                                <input type="text" class="form-control" id="pump-capacity-input"
+                                                    placeholder="Enter pump Capacity" data-provider="flatpickr">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                   
+                                    <div class="row ">
+                                        <div class="col-lg-6">
+                                            <div class="mb-3 mb-lg-0">
+                                                <label for="pump-manufacture-input" class="form-label">Manufacture of Pump</label>
+                                                <input type="text" class="form-control" id="pump-manufacture-input"
+                                                    placeholder="Enter manufacture of pump" data-provider="flatpickr">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="mb-3 mb-lg-0">
+                                                <label for="pump-serial-number-input" class="form-label">Serial Numbers of Pump</label>
+                                                <input type="text" class="form-control" id="pump-serial-number-input"
+                                                    placeholder="Enter serial numbers of pump" data-provider="flatpickr">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!-- end card body -->
+                            </div>
+                             <!-- Drive Details -->
+                             <div class="card">
+                                <div class="card-header">
+                                    <h5 class="card-title mb-0">Drive Details</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row mb-3">
+                                        <div class="col-lg-6">
+                                            <div class="mb-3 mb-lg-0">
+                                                <label for="drive-type-input" class="form-label">Drive Type</label>
+                                                <input type="text" class="form-control" id="drive-type-input"
+                                                    placeholder="Enter drive type" data-provider="flatpickr">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="mb-3 mb-lg-0">
+                                                <label for="drive-capacity-input" class="form-label">Drive Capacity</label>
+                                                <input type="text" class="form-control" id="drive-capacity-input"
+                                                    placeholder="Enter drive Capacity" data-provider="flatpickr">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                   
+                                    <div class="row ">
+                                        <div class="col-lg-6">
+                                            <div class="mb-3 mb-lg-0">
+                                                <label for="drive-manufacture-input" class="form-label">Manufacture of Drive</label>
+                                                <input type="text" class="form-control" id="drive-manufacture-input"
+                                                    placeholder="Enter manufacture of drive" data-provider="flatpickr">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="mb-3 mb-lg-0">
+                                                <label for="drive-serial-number-input" class="form-label">Serial Numbers of Drive</label>
+                                                <input type="text" class="form-control" id="drive-serial-number-input"
+                                                    placeholder="Enter serial numbers of drive" data-provider="flatpickr">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!-- end card body -->
+                            </div>
+                            <div class="text-end mb-4">
+                                <button type="submit" class="btn btn-light w-sm">Reset</button>
+                       
+                                <button type="submit" class="btn btn-success w-sm">Create</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <!-- container-fluid -->
+            </div>
+            <!-- End Page-content -->
+
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <script>document.write(new Date().getFullYear())</script> © Velzon.
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="text-sm-end d-none d-sm-block">
+                                Design & Develop by Devdasz
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <!-- end main content-->
+
+    </div>
+    <!-- END layout-wrapper -->
+
+
+
+    <!--start back-to-top-->
+    <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
+        <i class="ri-arrow-up-line"></i>
+    </button>
+    <!--end back-to-top-->
+
+    <!--preloader-->
+    <div id="preloader">
+        <div id="status">
+            <div class="spinner-border text-primary avatar-sm" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- JAVASCRIPT -->
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/libs/simplebar/simplebar.min.js"></script>
+    <script src="assets/libs/node-waves/waves.min.js"></script>
+    <script src="assets/libs/feather-icons/feather.min.js"></script>
+    <script src="assets/js/pages/plugins/lord-icon-2.1.0.js"></script>
+    <script src="assets/js/plugins.js"></script>
+
+    <!-- apexcharts -->
+    <script src="assets/libs/apexcharts/apexcharts.min.js"></script>
+
+    <!-- Vector map-->
+    <script src="assets/libs/jsvectormap/js/jsvectormap.min.js"></script>
+    <script src="assets/libs/jsvectormap/maps/world-merc.js"></script>
+
+    <!-- Dashboard init -->
+    <script src="assets/js/pages/dashboard-analytics.init.js"></script>
+
+    <!-- App js -->
+    <script src="assets/js/app.js"></script>
+</body>
+
+
+
+</html>

@@ -1,0 +1,46 @@
+pages:
+    - Dashboard
+    - Projects
+        - Create Project
+        - View All Projects
+    - Users
+        - Add User
+        - View All Users
+
+Create Project
+--------------------
+Project Name
+Dept. Name
+Agency Name
+
+Pump No
+Moble No
+Sim No
+
+Location
+--------
+    District
+    Location
+
+PV Details
+----------
+    Device ID
+    PV Module Type
+    Each PV Module Wattage
+    Total Numbers of PV Modules
+    Manufacture of PV Modules
+    Serial Numbers of Module
+
+Pump Details
+------------
+    Pump Type
+    Pump Capacity
+    Manufacture of Pump
+    Serial Numbers of Pump
+
+Drive Details
+-------------
+    Drive Type
+    Drive Capacity
+    Manufacture of Drive
+    Serial Numbers of Drive
