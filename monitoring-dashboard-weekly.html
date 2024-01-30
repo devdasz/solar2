@@ -412,7 +412,78 @@
                                 </div>
                             </div>
                         </div>
+                         <!--  AC Current -->
+                         <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title mb-0">AC Current (A)</h4>
+                                </div>
+                                <div class="card-body">
+                                    <canvas id="ac_current_lineChart" class="chartjs-chart"
+                                        data-colors="[&quot;--vz-primary-rgb, 0.2&quot;, &quot;--vz-primary&quot;, &quot;--vz-success-rgb, 0.2&quot;, &quot;--vz-success&quot;]"
+                                        width="1276" height="638"
+                                        style="display: block; box-sizing: border-box; height: 319px; width: 638px;"></canvas>
+                                    <script>
+                                        ac_current_data = [
+                                            { label: "31, Dec", value: 500 },
+                                            { label: "07, Jan", value: 367 },
+                                            { label: "14, Jan", value: 478 },
+                                            { label: "21, Jan", value: 675 },
+                                            { label: "28, Jan", value: 577 },
+                                        ];
+                                    </script>
 
+                                </div>
+                            </div>
+                        </div>
+                          <!--  Frequency (Hz) -->
+                          <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title mb-0">Frequency (Hz)</h4>
+                                </div>
+                                <div class="card-body">
+                                    <canvas id="frequency_lineChart" class="chartjs-chart"
+                                        data-colors="[&quot;--vz-primary-rgb, 0.2&quot;, &quot;--vz-primary&quot;, &quot;--vz-success-rgb, 0.2&quot;, &quot;--vz-success&quot;]"
+                                        width="1276" height="638"
+                                        style="display: block; box-sizing: border-box; height: 319px; width: 638px;"></canvas>
+                                    <script>
+                                        frequency_data = [
+                                            { label: "31, Dec", value: 500 },
+                                            { label: "07, Jan", value: 367 },
+                                            { label: "14, Jan", value: 478 },
+                                            { label: "21, Jan", value: 675 },
+                                            { label: "28, Jan", value: 577 },
+                                        ];
+                                    </script>
+
+                                </div>
+                            </div>
+                        </div>
+                          <!-- Temparature (Centegrate) -->
+                          <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title mb-0">Temparature (Centegrate)</h4>
+                                </div>
+                                <div class="card-body">
+                                    <canvas id="temparature_lineChart" class="chartjs-chart"
+                                        data-colors="[&quot;--vz-primary-rgb, 0.2&quot;, &quot;--vz-primary&quot;, &quot;--vz-success-rgb, 0.2&quot;, &quot;--vz-success&quot;]"
+                                        width="1276" height="638"
+                                        style="display: block; box-sizing: border-box; height: 319px; width: 638px;"></canvas>
+                                    <script>
+                                        temparature_data = [
+                                            { label: "31, Dec", value: 500 },
+                                            { label: "07, Jan", value: 367 },
+                                            { label: "14, Jan", value: 478 },
+                                            { label: "21, Jan", value: 675 },
+                                            { label: "28, Jan", value: 577 },
+                                        ];
+                                    </script>
+
+                                </div>
+                            </div>
+                        </div>
                         <!-- end col -->
                     </div>
 
@@ -509,9 +580,15 @@
     <script src="assets/js/pages/chartjs.init.js"></script>
     <script>
       let rendering_charts = [
-        {canvas_id:"dc_power_lineChart",label:"Power",data:dc_power_data},
-        {canvas_id:"dc_voltage_lineChart",label:"Voltage",data:dc_voltage_data},
-        {canvas_id:"ac_voltage_lineChart",label:"Voltage",data:ac_voltage_data},
+        {canvas_id:"dc_power_lineChart",label:"Watt",data:dc_power_data},
+        {canvas_id:"dc_voltage_lineChart",label:"V",data:dc_voltage_data},
+        {canvas_id:"ac_voltage_lineChart",label:"V",data:ac_voltage_data},
+        {canvas_id:"dc_current_lineChart",label:"A",data:dc_current_data},
+        {canvas_id:"ac_current_lineChart",label:"A",data:ac_current_data},
+        {canvas_id:"frequency_lineChart",label:"Hz",data:frequency_data},
+        {canvas_id:"temparature_lineChart",label:"°C",data:temparature_data},
+        
+        
       ];
       rendering_charts.forEach(element =>  getChart(element.canvas_id,element.label, element.data));
 
