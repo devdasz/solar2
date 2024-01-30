@@ -508,15 +508,13 @@
     <script src="assets/libs/chart.js/chart.umd.js"></script>
     <script src="assets/js/pages/chartjs.init.js"></script>
     <script>
-      
-        // DC Power Chart
-        getChart("dc_power_lineChart","Power", dc_power_data);
-        
-        // DC Voltage Chart
-        getChart("dc_voltage_lineChart","Voltage",  dc_voltage_data);
-    
-        // AC Voltage Chart
-        getChart("ac_voltage_lineChart","Voltage",  ac_voltage_data);
+      let rendering_charts = [
+        {canvas_id:"dc_power_lineChart",label:"Power",data:dc_power_data},
+        {canvas_id:"dc_voltage_lineChart",label:"Voltage",data:dc_voltage_data},
+        {canvas_id:"ac_voltage_lineChart",label:"Voltage",data:ac_voltage_data},
+      ];
+      rendering_charts.forEach(element =>  getChart(element.canvas_id,element.label, element.data));
+
         
 
     </script>
