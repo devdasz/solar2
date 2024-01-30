@@ -510,53 +510,14 @@
     <script>
       
         // DC Power Chart
-        dc_power_linechart = document.getElementById("dc_power_lineChart");
-        dc_power_linechart.setAttribute("width", dc_power_linechart.parentElement.offsetWidth);
-        (lineChartColor = getChartColorsArray("dc_power_lineChart"));
-        new Chart(dc_power_linechart, {
-            type: "line",
-            data: 
-            getData("dc_power_lineChart", "Custom", dc_power_data)
-          ,
-            options:defaultOption ,
-        });
-
+        getChart("dc_power_lineChart","Power", dc_power_data);
+        
         // DC Voltage Chart
-        dc_voltage_linechart = document.getElementById("dc_voltage_lineChart");
-        dc_voltage_linechart.setAttribute("width", dc_voltage_linechart.parentElement.offsetWidth);
-        (lineChartColor = getChartColorsArray("dc_voltage_lineChart"));
-        new Chart(dc_voltage_linechart, {
-            type: "line",
-            data: {
-                labels: dc_voltage_data.map((x) => x.label),
-                datasets: [
-                getDataset("dc_voltage_lineChart", "label2", dc_voltage_data),
-                   
-
-                ],
-            },
-            options: { x: { ticks: { font: { family: "Poppins" } } }, y: { ticks: { font: { family: "Poppins" } } }, plugins: { legend: { labels: { font: { family: "Poppins" } } } } },
-        });
+        getChart("dc_voltage_lineChart","Voltage",  dc_voltage_data);
+    
         // AC Voltage Chart
-        ac_voltage_linechart = document.getElementById("ac_voltage_lineChart");
-        ac_voltage_linechart.setAttribute("width", ac_voltage_linechart.parentElement.offsetWidth);
-        (lineChartColor = getChartColorsArray("ac_voltage_lineChart"));
-        new Chart(ac_voltage_linechart, {
-            type: "line",
-            data: {
-                labels: ac_voltage_data.map((x) => x.label),
-                datasets: [
-                getDataset("ac_voltage_lineChart", "label3", ac_voltage_data)
-                    
-
-                ],
-            },
-            options: { x: { ticks: { font: { family: "Poppins" } } }, y: { ticks: { font: { family: "Poppins" } } }, plugins: { legend: { labels: { font: { family: "Poppins" } } } } },
-        });
-
-
-
-
+        getChart("ac_voltage_lineChart","Voltage",  ac_voltage_data);
+        
 
     </script>
 

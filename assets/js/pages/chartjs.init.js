@@ -46,3 +46,14 @@ function getDataset(canvasId,label, data) {
             ],
       };
   }
+
+  function getChart(canvasId,label, data){
+    linechart = document.getElementById(canvasId);
+    linechart.setAttribute("width", linechart.parentElement.offsetWidth);
+   return  new Chart(canvasId, {
+    type: "line",
+    data: getData(canvasId,label, data)
+  ,
+    options:defaultOption ,
+}) ;
+}
