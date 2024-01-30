@@ -508,44 +508,17 @@
     <script src="assets/libs/chart.js/chart.umd.js"></script>
     <script src="assets/js/pages/chartjs.init.js"></script>
     <script>
-        // Default Chart Configuration
-        function getDataset(canvasId,label, data) {
-            lineChartColor = getChartColorsArray(canvasId);
-            return {
-                        label:label,
-                        fill: !0,
-                        lineTension: 0.5,
-                        backgroundColor: lineChartColor[0],
-                        borderColor: lineChartColor[1],
-                        borderCapStyle: "butt",
-                        borderDash: [],
-                        borderDashOffset: 0,
-                        borderJoinStyle: "miter",
-                        pointBorderColor: lineChartColor[1],
-                        pointBackgroundColor: "#fff",
-                        pointBorderWidth: 1,
-                        pointHoverRadius: 5,
-                        pointHoverBackgroundColor: lineChartColor[1],
-                        pointHoverBorderColor: "#fff",
-                        pointHoverBorderWidth: 2,
-                        pointRadius: 1,
-                        pointHitRadius: 10,
-                        data: data.map((x) => x.value),
-                    };
-        }
+      
         // DC Power Chart
         dc_power_linechart = document.getElementById("dc_power_lineChart");
         dc_power_linechart.setAttribute("width", dc_power_linechart.parentElement.offsetWidth);
         (lineChartColor = getChartColorsArray("dc_power_lineChart"));
         new Chart(dc_power_linechart, {
             type: "line",
-            data: {
-                labels: dc_power_data.map((x) => x.label),
-                datasets: [
-                                       getDataset("dc_power_lineChart", "Custom", dc_power_data)
-                  ],
-            },
-            options: { x: { ticks: { font: { family: "Poppins" } } }, y: { ticks: { font: { family: "Poppins" } } }, plugins: { legend: { labels: { font: { family: "Poppins" } } } } },
+            data: 
+            getData("dc_power_lineChart", "Custom", dc_power_data)
+          ,
+            options:defaultOption ,
         });
 
         // DC Voltage Chart
