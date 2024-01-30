@@ -315,21 +315,83 @@
                     </div>
                     <!-- end page title -->
                     <div class="row">
-                        <div class="col-12">
+                        <!-- DC Power (Watt) -->
+                        <div class="col-md-4">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title mb-0">Line Chart</h4>
+                                    <h4 class="card-title mb-0">DC Power (Watt)</h4>
                                 </div>
                                 <div class="card-body">
-                                    <canvas id="lineChart" class="chartjs-chart" data-colors="[&quot;--vz-primary-rgb, 0.2&quot;, &quot;--vz-primary&quot;, &quot;--vz-success-rgb, 0.2&quot;, &quot;--vz-success&quot;]" width="1276" height="638" style="display: block; box-sizing: border-box; height: 319px; width: 638px;"></canvas>
-                                   
+                                    <canvas id="dc_power_lineChart" class="chartjs-chart"
+                                        data-colors="[&quot;--vz-primary-rgb, 0.2&quot;, &quot;--vz-primary&quot;, &quot;--vz-success-rgb, 0.2&quot;, &quot;--vz-success&quot;]"
+                                        width="1276" height="638"
+                                        style="display: block; box-sizing: border-box; height: 319px; width: 638px;"></canvas>
+                                    <script>
+                                        dc_power_data = [
+                                            { label: "31, Dec", value: 1000 },
+                                            { label: "07, Jan", value: 1367 },
+                                            { label: "14, Jan", value: 1478 },
+                                            { label: "21, Jan", value: 1675 },
+                                            { label: "28, Jan", value: 1577 },
+
+                                        ];
+                                    </script>
+
                                 </div>
                             </div>
                         </div>
-                       
+                        <!-- DC Voltage -->
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title mb-0">DC Voltage (V)</h4>
+                                </div>
+                                <div class="card-body">
+                                    <canvas id="dc_voltage_lineChart" class="chartjs-chart"
+                                        data-colors="[&quot;--vz-primary-rgb, 0.2&quot;, &quot;--vz-primary&quot;, &quot;--vz-success-rgb, 0.2&quot;, &quot;--vz-success&quot;]"
+                                        width="1276" height="638"
+                                        style="display: block; box-sizing: border-box; height: 319px; width: 638px;"></canvas>
+                                    <script>
+                                        dc_voltage_data = [
+                                            { label: "31, Dec", value: 500 },
+                                            { label: "07, Jan", value: 367 },
+                                            { label: "14, Jan", value: 478 },
+                                            { label: "21, Jan", value: 675 },
+                                            { label: "28, Jan", value: 577 },
+                                        ];
+                                    </script>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- AC Volatage -->
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title mb-0">AC Voltage (V)</h4>
+                                </div>
+                                <div class="card-body">
+                                    <canvas id="ac_voltage_lineChart" class="chartjs-chart"
+                                        data-colors="[&quot;--vz-primary-rgb, 0.2&quot;, &quot;--vz-primary&quot;, &quot;--vz-success-rgb, 0.2&quot;, &quot;--vz-success&quot;]"
+                                        width="1276" height="638"
+                                        style="display: block; box-sizing: border-box; height: 319px; width: 638px;"></canvas>
+                                    <script>
+                                        ac_voltage_data = [
+                                            { label: "31, Dec", value: 500 },
+                                            { label: "07, Jan", value: 367 },
+                                            { label: "14, Jan", value: 478 },
+                                            { label: "21, Jan", value: 675 },
+                                            { label: "28, Jan", value: 577 },
+                                        ];
+                                    </script>
+
+                                </div>
+                            </div>
+                        </div>
+
                         <!-- end col -->
                     </div>
-                    
+
                     <div class="row">
                         <div class="col-12">
                             <div class="d-flex justify-content-between">
@@ -422,64 +484,113 @@
     <script src="assets/libs/chart.js/chart.umd.js"></script>
     <script src="assets/js/pages/chartjs.init.js"></script>
     <script>
-    
-islinechart = document.getElementById("lineChart");
-islinechart.setAttribute("width", islinechart.parentElement.offsetWidth);
-(lineChartColor = getChartColorsArray("lineChart"));
-new Chart(islinechart, {
-                type: "line",
-                data: {
-                    labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October"],
-                    datasets: [
-                        {
-                            label: "Sales Analytics",
-                            fill: !0,
-                            lineTension: 0.5,
-                            backgroundColor: lineChartColor[0],
-                            borderColor: lineChartColor[1],
-                            borderCapStyle: "butt",
-                            borderDash: [],
-                            borderDashOffset: 0,
-                            borderJoinStyle: "miter",
-                            pointBorderColor: lineChartColor[1],
-                            pointBackgroundColor: "#fff",
-                            pointBorderWidth: 1,
-                            pointHoverRadius: 5,
-                            pointHoverBackgroundColor: lineChartColor[1],
-                            pointHoverBorderColor: "#fff",
-                            pointHoverBorderWidth: 2,
-                            pointRadius: 1,
-                            pointHitRadius: 10,
-                            data: [65, 59, 80, 81, 56, 55, 40, 55, 30, 80],
-                        },
-                        {
-                            label: "Monthly Earnings",
-                            fill: !0,
-                            lineTension: 0.5,
-                            backgroundColor: lineChartColor[2],
-                            borderColor: lineChartColor[3],
-                            borderCapStyle: "butt",
-                            borderDash: [],
-                            borderDashOffset: 0,
-                            borderJoinStyle: "miter",
-                            pointBorderColor: lineChartColor[3],
-                            pointBackgroundColor: "#fff",
-                            pointBorderWidth: 1,
-                            pointHoverRadius: 5,
-                            pointHoverBackgroundColor: lineChartColor[3],
-                            pointHoverBorderColor: "#eef0f2",
-                            pointHoverBorderWidth: 2,
-                            pointRadius: 1,
-                            pointHitRadius: 10,
-                            data: [80, 23, 56, 65, 23, 35, 85, 25, 92, 36],
-                        },
-                    ],
-                },
-                options: { x: { ticks: { font: { family: "Poppins" } } }, y: { ticks: { font: { family: "Poppins" } } }, plugins: { legend: { labels: { font: { family: "Poppins" } } } } },
-            })
 
+        // DC Power Chart
+        dc_power_linechart = document.getElementById("dc_power_lineChart");
+        dc_power_linechart.setAttribute("width", dc_power_linechart.parentElement.offsetWidth);
+        (lineChartColor = getChartColorsArray("dc_power_lineChart"));
+        new Chart(dc_power_linechart, {
+            type: "line",
+            data: {
+                labels: dc_power_data.map((x) => x.label),
+                datasets: [
+                    {
+                        label: "Sales Analytics",
+                        fill: !0,
+                        lineTension: 0.5,
+                        backgroundColor: lineChartColor[0],
+                        borderColor: lineChartColor[1],
+                        borderCapStyle: "butt",
+                        borderDash: [],
+                        borderDashOffset: 0,
+                        borderJoinStyle: "miter",
+                        pointBorderColor: lineChartColor[1],
+                        pointBackgroundColor: "#fff",
+                        pointBorderWidth: 1,
+                        pointHoverRadius: 5,
+                        pointHoverBackgroundColor: lineChartColor[1],
+                        pointHoverBorderColor: "#fff",
+                        pointHoverBorderWidth: 2,
+                        pointRadius: 1,
+                        pointHitRadius: 10,
+                        data: dc_power_data.map((x) => x.value),
+                    },
 
+                ],
+            },
+            options: { x: { ticks: { font: { family: "Poppins" } } }, y: { ticks: { font: { family: "Poppins" } } }, plugins: { legend: { labels: { font: { family: "Poppins" } } } } },
+        });
 
+        // DC Voltage Chart
+        dc_voltage_linechart = document.getElementById("dc_voltage_lineChart");
+        dc_voltage_linechart.setAttribute("width", dc_voltage_linechart.parentElement.offsetWidth);
+        (lineChartColor = getChartColorsArray("dc_voltage_lineChart"));
+        new Chart(dc_voltage_linechart, {
+            type: "line",
+            data: {
+                labels: dc_voltage_data.map((x) => x.label),
+                datasets: [
+                    {
+                        label: "Sales Analytics",
+                        fill: !0,
+                        lineTension: 0.5,
+                        backgroundColor: lineChartColor[0],
+                        borderColor: lineChartColor[1],
+                        borderCapStyle: "butt",
+                        borderDash: [],
+                        borderDashOffset: 0,
+                        borderJoinStyle: "miter",
+                        pointBorderColor: lineChartColor[1],
+                        pointBackgroundColor: "#fff",
+                        pointBorderWidth: 1,
+                        pointHoverRadius: 5,
+                        pointHoverBackgroundColor: lineChartColor[1],
+                        pointHoverBorderColor: "#fff",
+                        pointHoverBorderWidth: 2,
+                        pointRadius: 1,
+                        pointHitRadius: 10,
+                        data: dc_voltage_data.map((x) => x.value),
+                    },
+
+                ],
+            },
+            options: { x: { ticks: { font: { family: "Poppins" } } }, y: { ticks: { font: { family: "Poppins" } } }, plugins: { legend: { labels: { font: { family: "Poppins" } } } } },
+        });
+        // AC Voltage Chart
+        ac_voltage_linechart = document.getElementById("ac_voltage_lineChart");
+        ac_voltage_linechart.setAttribute("width", ac_voltage_linechart.parentElement.offsetWidth);
+        (lineChartColor = getChartColorsArray("ac_voltage_lineChart"));
+        new Chart(ac_voltage_linechart, {
+            type: "line",
+            data: {
+                labels: ac_voltage_data.map((x) => x.label),
+                datasets: [
+                    {
+                        label: "Sales Analytics",
+                        fill: !0,
+                        lineTension: 0.5,
+                        backgroundColor: lineChartColor[0],
+                        borderColor: lineChartColor[1],
+                        borderCapStyle: "butt",
+                        borderDash: [],
+                        borderDashOffset: 0,
+                        borderJoinStyle: "miter",
+                        pointBorderColor: lineChartColor[1],
+                        pointBackgroundColor: "#fff",
+                        pointBorderWidth: 1,
+                        pointHoverRadius: 5,
+                        pointHoverBackgroundColor: lineChartColor[1],
+                        pointHoverBorderColor: "#fff",
+                        pointHoverBorderWidth: 2,
+                        pointRadius: 1,
+                        pointHitRadius: 10,
+                        data: ac_voltage_data.map((x) => x.value),
+                    },
+
+                ],
+            },
+            options: { x: { ticks: { font: { family: "Poppins" } } }, y: { ticks: { font: { family: "Poppins" } } }, plugins: { legend: { labels: { font: { family: "Poppins" } } } } },
+        });
 
 
 
